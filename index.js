@@ -13,8 +13,12 @@ const freshBooks = new Client(FRESH_BOOKS_CLIENT_ID, {
 });
 
 try {
+  // calling projects.list() throws TypeError
   const data = await freshBooks.projects.list(FRESH_BOOKS_BUSINESS_ID, []);
+
+  // calling clients.single() correctly returns http error as described in docs
   // const data = await freshBooks.clients.single(FRESH_BOOKS_BUSINESS_ID, 1234);
+
   console.log(data);
 } catch (error) {
   console.log(error);
